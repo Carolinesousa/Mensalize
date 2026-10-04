@@ -59,4 +59,4 @@ gerencia token. Por ser first-party e same-site, é o modo mais seguro e recomen
 ## Pendências
 
 - Configuração de domínios em produção (mesmo domínio vs subdomínios) será fechada na decisão
-  de deploy.
+  de deploy. **(Resolvido pelo [ADR 0016](0016-hospedagem-vps-com-docker.md): mesmo domínio.)**
