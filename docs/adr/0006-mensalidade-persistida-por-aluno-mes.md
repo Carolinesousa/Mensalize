@@ -60,5 +60,5 @@ ajuste manual e status.
 
 - Política de recálculo: se o cadastro do aluno (dias de aula, promoção) mudar depois da
   criação da mensalidade, o valor é recalculado ou mantido como snapshot? Será fechado antes do
-  modelo de dados no TDD.
+  modelo de dados no TDD. **(Resolvido pelo [ADR 0012](0012-snapshot-do-valor-base.md): snapshot.)**
 - Critério para alunos cadastrados no meio do mês.
