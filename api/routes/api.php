@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\{AuthController, ProfileController, PromotionController, StudentController};
+use App\Http\Controllers\Api\{AuthController, InvoiceController, ProfileController, PromotionController, StudentController};
 use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [AuthController::class, 'register']);
@@ -14,4 +14,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::apiResource('promotions', PromotionController::class);
     Route::apiResource('students', StudentController::class);
+
+    Route::get('invoices', [InvoiceController::class, 'index']);
+    Route::get('invoices/{invoice}', [InvoiceController::class, 'show']);
+    Route::patch('invoices/{invoice}', [InvoiceController::class, 'update']);
 });
