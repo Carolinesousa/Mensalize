@@ -1,9 +1,12 @@
 <?php
 
-use App\Models\{Teacher, Invoice};
+use App\Models\Invoice;
+use App\Models\Teacher;
 
-function makeInvoice(Teacher $t, string $base = '100.00'): Invoice {
+function makeInvoice(Teacher $t, string $base = '100.00'): Invoice
+{
     $s = $t->students()->create(['name' => 'Ana', 'phone' => '1', 'due_day' => 5]);
+
     return $t->invoices()->create(['student_id' => $s->id, 'reference_month' => '2026-09',
         'base_lesson_count' => 5, 'base_amount' => $base, 'due_date' => '2026-10-05', 'status' => 'pending']);
 }

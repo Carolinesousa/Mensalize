@@ -1,6 +1,7 @@
 <?php
 
-use App\Models\{Teacher, Promotion};
+use App\Models\Promotion;
+use App\Models\Teacher;
 
 it('cria e lista promoções do professor', function () {
     $teacher = Teacher::factory()->create();

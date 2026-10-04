@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class StudentWeekday extends Model
 {
@@ -11,5 +11,8 @@ class StudentWeekday extends Model
 
     protected $fillable = ['student_id', 'weekday'];
 
-    public function student() { return $this->belongsTo(Student::class); }
+    public function student()
+    {
+        return $this->belongsTo(Student::class);
+    }
 }

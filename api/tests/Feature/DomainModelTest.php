@@ -1,6 +1,11 @@
 <?php
 
-use App\Models\{Teacher, Promotion, Student, StudentWeekday, Invoice, InvoiceAdjustment};
+use App\Models\Invoice;
+use App\Models\InvoiceAdjustment;
+use App\Models\Promotion;
+use App\Models\Student;
+use App\Models\StudentWeekday;
+use App\Models\Teacher;
 
 it('relaciona professor, aluno, dias, promoção e mensalidade', function () {
     $teacher = Teacher::factory()->create(['hourly_rate' => '20.00']);

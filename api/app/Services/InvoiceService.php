@@ -2,7 +2,8 @@
 
 namespace App\Services;
 
-use App\Models\{Invoice, Teacher};
+use App\Models\Invoice;
+use App\Models\Teacher;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Collection;
 

@@ -1,6 +1,12 @@
 <?php
 
-use App\Http\Controllers\Api\{AuthController, InvoiceAdjustmentController, InvoiceController, ProfileController, PromotionController, StudentController, WhatsappLinkController};
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\InvoiceAdjustmentController;
+use App\Http\Controllers\Api\InvoiceController;
+use App\Http\Controllers\Api\ProfileController;
+use App\Http\Controllers\Api\PromotionController;
+use App\Http\Controllers\Api\StudentController;
+use App\Http\Controllers\Api\WhatsappLinkController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('throttle:auth')->group(function () {

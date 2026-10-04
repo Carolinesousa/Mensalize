@@ -1,5 +1,7 @@
 <?php
-use App\Services\{LessonCounter, MensalidadeCalculator};
+
+use App\Services\LessonCounter;
+use App\Services\MensalidadeCalculator;
 use Carbon\CarbonImmutable;
 
 it('conta as aulas de um dia da semana em setembro/2026', function () {

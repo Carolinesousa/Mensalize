@@ -1,4 +1,5 @@
 <?php
+
 use App\Models\Teacher;
 
 it('gera o link do WhatsApp da mensalidade', function () {

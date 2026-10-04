@@ -1,13 +1,17 @@
 <?php
+
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Services\{MessageTemplateRenderer, WhatsAppLinkBuilder};
+use App\Services\MessageTemplateRenderer;
+use App\Services\WhatsAppLinkBuilder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
-class WhatsappLinkController extends Controller {
-    public function __invoke(Request $request, int $invoice) {
+class WhatsappLinkController extends Controller
+{
+    public function __invoke(Request $request, int $invoice)
+    {
         $teacher = $request->user();
         $model = $teacher->invoices()->with('student', 'adjustments')->findOrFail($invoice);
 

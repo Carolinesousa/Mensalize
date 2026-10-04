@@ -1,5 +1,7 @@
 <?php
-use App\Services\{MessageTemplateRenderer, WhatsAppLinkBuilder};
+
+use App\Services\MessageTemplateRenderer;
+use App\Services\WhatsAppLinkBuilder;
 
 it('normaliza telefones com e sem DDI', function () {
     $b = new WhatsAppLinkBuilder;
