@@ -22,6 +22,11 @@
 /web/.env
 /web/.env.local
 
+# Playwright (E2E)
+/web/test-results/
+/web/playwright-report/
+/web/playwright/.cache/
+
 # Docker Compose (variáveis com segredos)
 /.env
 
