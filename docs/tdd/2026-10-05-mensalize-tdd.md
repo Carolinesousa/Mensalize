@@ -275,6 +275,7 @@ Exemplo de mensalidade (`GET /api/invoices/{id}`):
 | Vazamento de dados entre professoras | Alto (LGPD) | Escopo global por `teacher_id` + Policies; testes de isolamento (404 cross-tenant). |
 | Configuração de sessão/CORS no deploy | Alto | Mesmo domínio (ADR 0016); validar cookie/CSRF no ambiente real e em E2E. |
 | Placeholder inválido quebra a mensagem | Médio | Validar ao salvar + template padrão de fallback; testes de renderização. |
+| Verificação de e-mail no cadastro self-service | Médio | Decisão pendente (ADR 0013): MVP **sem** verificação de e-mail, ou verificação obrigatória antes de usar. A definir na revisão deste TDD. |
 | Erro no cálculo do nº de aulas (meses de 4/5 semanas, múltiplos dias) | Médio | Testes unitários do `MensalidadeCalculator` cobrindo bordas. |
 | Dados pessoais (possivelmente menores) | Alto | Tratar proteção de dados como requisito; minimizar coleta; pendente revisar consentimento/base legal. |
 | Escopo (planos, escola) reaparecer | Médio | Manter explicitamente fora do MVP; revisar com `ponytail-review`. |
