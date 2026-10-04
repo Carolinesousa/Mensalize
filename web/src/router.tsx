@@ -4,10 +4,8 @@ import { LoginPage } from './features/auth/LoginPage'
 import { RegisterPage } from './features/auth/RegisterPage'
 import { StudentsPage } from './features/students/StudentsPage'
 import { PromotionsPage } from './features/promotions/PromotionsPage'
+import { MonthView } from './features/invoices/MonthView'
 import { useAuth } from './lib/useAuth'
-
-// Placeholder: substituído pela MonthView na Task 10.
-function Home() { return <p className="p-8">Bem-vinda ao Mensalize.</p> }
 
 function Protected({ children }: { children: ReactNode }) {
   const { teacher, isLoading } = useAuth()
@@ -38,7 +36,7 @@ export const router = createBrowserRouter([
     path: '/',
     element: <Protected><Layout /></Protected>,
     children: [
-      { index: true, element: <Home /> },
+      { index: true, element: <MonthView /> },
       { path: 'alunos', element: <StudentsPage /> },
       { path: 'promocoes', element: <PromotionsPage /> },
     ],
