@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\{AuthController, ProfileController, PromotionController};
+use App\Http\Controllers\Api\{AuthController, ProfileController, PromotionController, StudentController};
 use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [AuthController::class, 'register']);
@@ -13,4 +13,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/profile', [ProfileController::class, 'update']);
 
     Route::apiResource('promotions', PromotionController::class);
+    Route::apiResource('students', StudentController::class);
 });
