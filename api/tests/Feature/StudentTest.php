@@ -25,3 +25,13 @@ it('não acessa aluno de outro professor (404)', function () {
     $student = $owner->students()->create(['name' => 'X', 'phone' => '31999998888', 'due_day' => 5]);
     $this->actingAs($other)->getJson("/api/students/{$student->id}")->assertNotFound();
 });
+
+it('não aceita promoção de outro professor (422)', function () {
+    $teacher = Teacher::factory()->create();
+    $other = Teacher::factory()->create();
+    $promo = $other->promotions()->create(['name' => 'Irmãos', 'discount_percent' => '10']);
+    $this->actingAs($teacher)->postJson('/api/students', [
+        'name' => 'Ana', 'phone' => '31999998888', 'due_day' => 10,
+        'promotion_id' => $promo->id, 'weekdays' => [1],
+    ])->assertStatus(422)->assertJsonValidationErrors('promotion_id');
+});
