@@ -22,6 +22,9 @@
 /web/.env
 /web/.env.local
 
+# Docker Compose (variáveis com segredos)
+/.env
+
 # SO / editor
 .DS_Store
 *.log
