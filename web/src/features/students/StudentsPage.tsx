@@ -14,6 +14,7 @@ function toInput(s: Student): StudentInput {
 export function StudentsPage() {
   const qc = useQueryClient()
   const [editing, setEditing] = useState<Student | null>(null)
+  const [formNonce, setFormNonce] = useState(0)
 
   const students = useQuery({ queryKey: ['students'], queryFn: listStudents })
   const promotions = useQuery({ queryKey: ['promotions'], queryFn: listPromotions })
@@ -24,6 +25,7 @@ export function StudentsPage() {
     onSuccess: async () => {
       await qc.invalidateQueries({ queryKey: ['students'] })
       setEditing(null)
+      setFormNonce((n) => n + 1)
     },
   })
 
@@ -39,7 +41,7 @@ export function StudentsPage() {
       <section className="mb-8 rounded border p-4">
         <h2 className="mb-3 text-lg font-semibold">{editing ? `Editar ${editing.name}` : 'Novo aluno'}</h2>
         <StudentForm
-          key={editing?.id ?? 'new'}
+          key={editing?.id ?? `new-${formNonce}`}
           initial={editing ? toInput(editing) : undefined}
           promotions={promotions.data ?? []}
           onSubmit={(data) => save.mutate(data)}
