@@ -7,10 +7,15 @@ RUN apt-get update && apt-get install -y git unzip libzip-dev \
 
 WORKDIR /var/www/api
 
-COPY . .
+# Contexto de build é a raiz do monorepo (ver docker-compose.yml).
+COPY api/ .
 
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
+COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
 RUN chown -R www-data:www-data storage bootstrap/cache
 
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 CMD ["php-fpm"]
