@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\{AuthController, InvoiceAdjustmentController, InvoiceController, ProfileController, PromotionController, StudentController};
+use App\Http\Controllers\Api\{AuthController, InvoiceAdjustmentController, InvoiceController, ProfileController, PromotionController, StudentController, WhatsappLinkController};
 use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [AuthController::class, 'register']);
@@ -20,4 +20,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::patch('invoices/{invoice}', [InvoiceController::class, 'update']);
     Route::post('invoices/{invoice}/adjustments', [InvoiceAdjustmentController::class, 'store']);
     Route::delete('invoices/{invoice}/adjustments/{adjustment}', [InvoiceAdjustmentController::class, 'destroy']);
+    Route::get('invoices/{invoice}/whatsapp-link', WhatsappLinkController::class);
 });
