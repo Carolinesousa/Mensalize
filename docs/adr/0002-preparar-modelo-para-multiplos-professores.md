@@ -1,6 +1,6 @@
 # 0002. Preparar o modelo de dados para múltiplos professores desde o início
 
-Status: Aceito
+Status: Substituído por [0013](0013-cadastro-aberto-e-multi-professor-no-mvp.md)
 Tipo: Produto
 Data: 2026-10-05
 
