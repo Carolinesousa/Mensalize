@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { listInvoices } from './api'
 import { formatBRL, formatDateBR } from '../../lib/format'
@@ -19,7 +20,7 @@ export function MonthView() {
           <tbody>
             {data.map((inv) => (
               <tr key={inv.id} className="border-t">
-                <td className="py-2">{inv.student.name}</td>
+                <td className="py-2"><Link className="text-indigo-600 underline" to={`/invoices/${inv.id}`}>{inv.student.name}</Link></td>
                 <td>{formatBRL(inv.total_amount)}</td>
                 <td>{formatDateBR(inv.due_date)}</td>
                 <td>{inv.status === 'paid' ? 'Pago' : 'Pendente'}</td>

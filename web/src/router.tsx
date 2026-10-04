@@ -5,6 +5,7 @@ import { RegisterPage } from './features/auth/RegisterPage'
 import { StudentsPage } from './features/students/StudentsPage'
 import { PromotionsPage } from './features/promotions/PromotionsPage'
 import { MonthView } from './features/invoices/MonthView'
+import { InvoiceDetail } from './features/invoices/InvoiceDetail'
 import { useAuth } from './lib/useAuth'
 
 function Protected({ children }: { children: ReactNode }) {
@@ -37,6 +38,7 @@ export const router = createBrowserRouter([
     element: <Protected><Layout /></Protected>,
     children: [
       { index: true, element: <MonthView /> },
+      { path: 'invoices/:id', element: <InvoiceDetail /> },
       { path: 'alunos', element: <StudentsPage /> },
       { path: 'promocoes', element: <PromotionsPage /> },
     ],
