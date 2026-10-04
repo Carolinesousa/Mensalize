@@ -1,0 +1,29 @@
+# Monorepo Mensalize
+
+# processo (dev-powers)
+.dev-powers/
+
+# PHP / Laravel
+/api/vendor/
+/api/.env
+/api/.phpunit.cache/
+/api/storage/*.key
+/api/storage/framework/cache/data/*
+/api/storage/framework/sessions/*
+/api/storage/framework/views/*
+/api/storage/logs/*
+!/api/storage/**/.gitignore
+/api/database/database.sqlite
+
+# Node / Vite
+/web/node_modules/
+/web/dist/
+/web/coverage/
+/web/.env
+/web/.env.local
+
+# SO / editor
+.DS_Store
+*.log
+.idea/
+.vscode/
