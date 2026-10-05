@@ -1,0 +1,16 @@
+# Contexto de build = raiz do monorepo (ver docker-compose.yml), para permitir
+# copiar tanto o código da API quanto o entrypoint em docker/.
+.git
+.dev-powers
+web
+
+# API: dependências e segredos não entram na imagem.
+api/vendor
+api/.env
+api/tests
+api/.phpunit.cache
+api/database/database.sqlite
+api/storage/framework/cache/data/*
+api/storage/framework/sessions/*
+api/storage/framework/views/*
+api/storage/logs/*
