@@ -47,4 +47,16 @@ describe('registerUnauthorizedHandler', () => {
     expect(client.getQueryCache().getAll()).toHaveLength(0)
     expect(router.navigate).not.toHaveBeenCalled()
   })
+
+  it('não redireciona em rota pública de cadastro (/registrar)', async () => {
+    const client = new QueryClient({ defaultOptions: { queries: { retry: false } } })
+    client.setQueryData(['me'], { id: 1 })
+    const router = makeRouter('/registrar')
+    cleanup = registerUnauthorizedHandler(router, client)
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response(null, { status: 401 }))
+
+    await expect(apiFetch('/me')).rejects.toThrowError(/401/)
+
+    expect(router.navigate).not.toHaveBeenCalled()
+  })
 })
